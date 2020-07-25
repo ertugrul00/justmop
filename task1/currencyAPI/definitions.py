@@ -42,7 +42,7 @@ class AnotherProviderInterface(ABC):
     @abstractmethod
     def parseThisProviderData(self, provider2Data):
         pass
-# Provider2 implements the interface, note that Provider2 can implement use the ProviderInterce 
+# Provider2 implements the interface, note that Provider2 can not implement use the ProviderInterce 
 # since functions are different.
 class Provider2(AnotherProviderInterface):
     def __init__(self):
