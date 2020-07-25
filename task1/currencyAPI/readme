@@ -1,0 +1,25 @@
+currencyAPI:
+    views.py: 
+        It compares two provider's currency and finds minimum values by using adaptor instance.
+        The result will be sent as JsonResponse.
+        It also writes the result into the MySQL database. The time of the request is also saved into the database.
+    urls.py:
+        The API endpoint ('http://localhost:8000/result') is directed into the function named 'getMinimums' in the views.py.
+    models.py:
+        This file is for db schema. There is only one model named DBModel, which keeps the request result and the time of
+        request. An example of a saved row in MySQL is as follows:
+        => format: (result data: str(dict), time: DateTime)
+        => {'USDTRY': 6.65234, 'EURTRY': 7.67234, 'GBPTRY': 8.50234} | 25/07/2020 21:16:01
+    definitions.py:
+        The main logic of the program and the adapter pattern are here in this file.
+        By using adapter class, we get provider's data and parse their data with the same naming convention. The explanation
+        the design pattern is provided in  the definitions.py file as comments.
+task1:
+    urls.py:
+        currencyAPI.urls is shown here, so the endpoint works without problem. Django looks for currencyAPI/urls.py file so the
+        endpoint in the currencyAPI/urls.py file works.
+    settings.py:
+        Basic configuration of django such as MySQL credentials is here.. Note that, I have changed
+        the username and password credentials for MYSQL connection for security reasons. (in line 82 and 83).
+    __init__.py:
+        MySQL module is imported here for properly working connection between django and MYSQL.
